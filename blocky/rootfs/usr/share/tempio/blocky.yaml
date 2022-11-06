@@ -1,0 +1,31 @@
+# Automatically generated do not edit
+
+upstream:
+  {{ range $i, $group := .dns_resolver_groups }}
+  {{ $group.name }}:
+    {{ range $j, $list := $group.resolvers }}
+    - {{ $list }}
+    {{ end }}
+  {{ end }}
+bootstrapDns:
+  upstream: https://cloudflare-dns.com/dns-query
+  ips:
+    - 1.1.1.1
+blocking:
+  blackLists:
+    {{ range $i, $group := .black_list_groups }}
+    {{ $group.name }}:
+      {{ range $j, $list := $group.lists }}
+      - {{ $list }}
+      {{ end }}
+    {{ end }}
+  clientGroupsBlock:
+    default:
+      {{ range $i, $group := .black_list_groups }}
+      - {{ $group.name }}
+      {{ end }}
+port: 53
+httpPort: 4000
+
+logLevel: {{.log_level}}
+logPrivacy: {{.privacy_logging_mode_enabled}}

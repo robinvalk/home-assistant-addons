@@ -1,0 +1,45 @@
+name: Blocky
+version: 2022.44.0
+slug: blocky
+stage: experimental
+url: https://github.com/robinvalk/home-assistant-addons/tree/main/blocky
+description: Blocky is a DNS proxy and ad-blocker for the local network written in Go
+startup: services
+panel_icon: mdi:shield-check
+penal_admin: true
+init: false
+watchdog: http://[HOST]:[PORT:4000]/blocking/status
+ports:
+  53/tcp: 53
+  53/udp: 53
+  4000/tcp: 4000
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+options:
+  log_level: info
+  privacy_logging_mode_enabled: false
+  black_list_groups:
+    - name: ads
+      lists:
+        - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+  dns_resolver_groups:
+    - name: default
+      resolvers:
+        - https://dns.adguard-dns.com/dns-query # AdGuard: https://adguard-dns.io/nl/public-dns.html
+        - https://cloudflare-dns.com/dns-query # Cloudflare: https://1.1.1.1/
+        - https://anycast.uncensoreddns.org/dns-query # UncensoredDNS: https://blog.uncensoreddns.org/dns-servers/
+schema:
+  black_list_groups:
+    - name: "str"
+      lists:
+        - "str"
+  dns_resolver_groups:
+    - name: "str"
+      resolvers:
+        - "str"
+  privacy_logging_mode_enabled: bool
+  log_level: "list(debug|info|warn|error)"

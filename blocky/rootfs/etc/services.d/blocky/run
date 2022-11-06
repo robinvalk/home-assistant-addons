@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bashio
+
+# ==============================================================================
+# Start the example service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+bashio::log.info "Starting Blocky..."
+
+exec /usr/local/bin/blocky --config /data/blocky.yaml
