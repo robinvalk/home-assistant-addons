@@ -1,7 +1,9 @@
 # Blocky
 
-Lorem ipsum...
+Blocky is a DNS proxy and ad-blocker for the local network written in Go.
 
 ## Installation
 
-[![Open your Home Assistant instance and show the Supervisor add-on store.](https://my.home-assistant.io/badges/supervisor_store.svg)](https://my.home-assistant.io/redirect/supervisor_store/)
+- Click install
+- Start the add-on
+- ...

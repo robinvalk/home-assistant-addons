@@ -2,6 +2,7 @@ name: Blocky
 version: 2022.44.0
 slug: blocky
 stage: experimental
+image: "ghcr.io/robinvalk/homeassistant-addon-blocky-{arch}"
 url: https://github.com/robinvalk/home-assistant-addons/tree/main/blocky
 description: Blocky is a DNS proxy and ad-blocker for the local network written in Go
 startup: services
