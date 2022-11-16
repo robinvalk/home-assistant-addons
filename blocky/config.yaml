@@ -1,5 +1,5 @@
 name: Blocky
-version: 2022.44.0
+version: 2022.46.0
 slug: blocky
 stage: experimental
 image: "ghcr.io/robinvalk/homeassistant-addon-blocky-{arch}"
