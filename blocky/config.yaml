@@ -8,7 +8,7 @@ description: Blocky is a DNS proxy and ad-blocker for the local network written 
 startup: services
 panel_icon: mdi:shield-check
 init: false
-watchdog: http://[HOST]:[PORT:4000]/blocking/status
+# watchdog: http://[HOST]:[PORT:4000]/blocking/status
 ports:
   53/tcp: 53
   53/udp: 53
